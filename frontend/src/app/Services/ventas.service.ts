@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({ providedIn: 'root' })
 export class VentasService {
   private http = inject(HttpClient);
-  private base = 'http://localhost:3000/api/v1';
+  private base = 'https://angular-proyecto-v2-clase-backend-production.up.railway.app/api/v1';
 
   obtenerTodas() { return this.http.get<any[]>(`${this.base}/ventas`); }
   obtenerHoy() { return this.http.get<any[]>(`${this.base}/ventas/hoy`); }
