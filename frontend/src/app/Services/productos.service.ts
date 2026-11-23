@@ -1,3 +1,4 @@
+import { API_URL } from '../api-url';
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
@@ -13,7 +14,7 @@ export interface Producto {
 @Injectable({ providedIn: 'root' })
 export class ProductosService {
   private http = inject(HttpClient);
-  private base = 'http://localhost:3000/api/v1';
+  private base = API_URL;
   private _productos = new BehaviorSubject<Producto[]>([]);
   productos$ = this._productos.asObservable();
 

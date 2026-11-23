@@ -1,10 +1,11 @@
+import { API_URL } from '../api-url';
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({ providedIn: 'root' })
 export class VentasService {
   private http = inject(HttpClient);
-  private base = 'http://localhost:3000/api/v1';
+  private base = API_URL;
 
   obtenerTodas() { return this.http.get<any[]>(`${this.base}/ventas`); }
   obtenerHoy() { return this.http.get<any[]>(`${this.base}/ventas/hoy`); }
