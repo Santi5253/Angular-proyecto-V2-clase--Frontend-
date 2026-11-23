@@ -1,10 +1,11 @@
+import { API_URL } from '../api-url';
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   private http = inject(HttpClient);
-  private base = 'http://localhost:3000/api/v1';
+  private base = API_URL;
 
   login(username: string, password: string) {
     return this.http.post<any>(`${this.base}/auth/login`, { usuario: username, contrasena: password });

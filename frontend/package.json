@@ -4,9 +4,10 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "node scripts/set-api-url.js && ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "serve": "serve -s dist/mi-app/browser -l tcp://0.0.0.0:${PORT:-8080}"
   },
   "private": true,
   "packageManager": "npm@11.6.2",
@@ -23,6 +24,7 @@
     "ng2-charts": "^10.0.0",
     "qrcode": "^1.5.4",
     "rxjs": "~7.8.0",
+    "serve": "^14.2.4",
     "sweetalert2": "^11.26.25",
     "tslib": "^2.3.0"
   },
