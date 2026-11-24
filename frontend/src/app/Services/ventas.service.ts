@@ -1,10 +1,11 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class VentasService {
   private http = inject(HttpClient);
-  private base = 'https://angular-proyecto-v2-clase-backend-production.up.railway.app/api/v1';
+  private base = environment.apiUrl;
 
   obtenerTodas() { return this.http.get<any[]>(`${this.base}/ventas`); }
   obtenerHoy() { return this.http.get<any[]>(`${this.base}/ventas/hoy`); }
